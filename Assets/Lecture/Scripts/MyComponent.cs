@@ -4,6 +4,11 @@ using System.Collections;
 public class MyComponent : MonoBehaviour {
     public int intVariable;
     public float floatVariable;
+    public GameObject[] gameObjects;
+
+    [SerializeField]    //프라이빗이지만 시리얼라이즈픨드 사용할고임
+    private int _intVar;
+
 	// Use this for initialization
 	void Start () 
     {
@@ -20,16 +25,16 @@ public class MyComponent : MonoBehaviour {
     {
         get
         {
-            return intVariable;
+            return _intVar;
         }
         set
         {
-            intVariable = value;
+            _intVar = value;
         }
     }
 
     public void DoSomething()
     {
-        intVariable += 2;
+        _intVar += 2;
     }
 }
