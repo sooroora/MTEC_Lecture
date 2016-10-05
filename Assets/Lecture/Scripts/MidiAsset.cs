@@ -7,6 +7,7 @@ public class MidiAsset : ScriptableObject
     MidiFile _midiFile;
 
 
+
     public void FileLoad(string path)
     {
         _midiFile = new MidiFile(path);
@@ -70,8 +71,19 @@ public class MidiAsset : ScriptableObject
     {
         get
         {
-            return (int) (1000000f/_midiFile.Time.Tempo);
+            return (int)(60000000f / _midiFile.Time.Tempo);
         }
     }
+
+    public MidiTrack[] tracks
+    {
+        get
+        {
+            return _midiFile.Tracks.ToArray();
+        }
+
+    } 
+
+
 
 }
