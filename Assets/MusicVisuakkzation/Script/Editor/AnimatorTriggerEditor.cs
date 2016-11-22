@@ -8,9 +8,9 @@ using System.Collections;
 
 
 
-[CustomEditor(typeof(MidiEventTrigger))]
+[CustomEditor(typeof(AnimatorTrigger))]
 
-public class MidiEventTriggerEditor : Editor
+public class AnimatorTriggerEditor : Editor
 {
 
     private bool foldout = false;
