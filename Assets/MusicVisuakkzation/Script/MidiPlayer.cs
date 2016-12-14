@@ -42,7 +42,7 @@ public class MidiPlayer : MonoBehaviour
     private MidiEventTrigger[] _triggers;
 
 
-
+    Light _light;
 
 
     // Use this for initialization
@@ -50,8 +50,8 @@ public class MidiPlayer : MonoBehaviour
     void Start()
     {
 
-
-
+        Play();
+        _light = this.GetComponent<Light>();
     }
 
 
@@ -60,6 +60,22 @@ public class MidiPlayer : MonoBehaviour
 
     void Update()
     {
+        if(_playTime>265f)
+        {
+            _light.intensity = 0f;
+        }
+        else if (_playTime > 224.5f)
+        {
+            _light.intensity = 0.8f;
+        }
+        else if(_playTime > 165f && _playTime < 184f)
+        {
+            _light.intensity = 0f;
+        }
+        else
+        {
+            _light.intensity = 0.3f;
+        }
 
         if (_isPlaying == true)
         {
@@ -122,6 +138,12 @@ public class MidiPlayer : MonoBehaviour
                         foreach (MidiEventTrigger trigger in _triggers)
                         {
 
+
+                            //if (_tracks[i].Instrument == 62)
+                            //{
+
+                            //    Debug.Log(_playTime + "inst : " + _tracks[i].Instrument + ", noteNum : " + note.Number);
+                            //}
                             trigger.NoteOn(_tracks[i].Instrument, note.Number);
 
                         }
@@ -215,7 +237,6 @@ public class MidiPlayer : MonoBehaviour
         _noteIndex = new int[_tracks.Length];
 
         for (int i = 0; i < _noteIndex.Length; i++)
-
             _noteIndex[i] = 0;
 
 

@@ -9,13 +9,13 @@ using System.Collections;
 
 
 [CustomEditor(typeof(AnimatorTrigger))]
-
+[CanEditMultipleObjects]
 public class AnimatorTriggerEditor : Editor
 {
 
     private bool foldout = false;
 
-    private bool foldout2 = false;
+    private bool foldout2 = true;
 
 
 
@@ -38,6 +38,8 @@ public class AnimatorTriggerEditor : Editor
 
     public override void OnInspectorGUI()
     {
+
+
 
         serializedObject.Update();
 

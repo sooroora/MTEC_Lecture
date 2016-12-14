@@ -69,13 +69,28 @@ public class MidiEventTrigger : MonoBehaviour
 
     public void NoteOn(int instrument, int noteNumber)
     {
-
-        if (_noteOn == false)
-        {
+      
+        //if (_noteOn == false)
+        //{
+            //if (instrument == 62)
+            //{
+            //    Debug.Log("inst : " + instrument + ", noteNum : " + noteNumber);
+            //}
 
             _noteOn = true;
 
+            //Debug.Log("inst" + instrument);
+            //Debug.Log("note" + noteNumber);
 
+             //if (instrumentFilter[instrument] == true )
+             //{
+             //    Debug.Log("inst" + instrument);
+             //}
+            //if (instrument == 62)
+            //{
+            //    Debug.Log("inst : " + instrument + ", noteNum : " + noteNumber);
+
+            //}
 
             if (instrumentFilter[instrument] == true && noteFilter[noteNumber] == true)
             {
@@ -83,10 +98,10 @@ public class MidiEventTrigger : MonoBehaviour
                 eventNoteOn.Invoke();
 
                 OnNoteOn();
-
+                OnNoteOnNoteNum(noteNumber);
             }
 
-        }
+        //}
 
     }
 
@@ -145,7 +160,10 @@ public class MidiEventTrigger : MonoBehaviour
 
     }
 
+    protected virtual void OnNoteOnNoteNum(int _noteNumber)
+    {
 
+    }
 
     protected virtual void OnNoteOff()
     {

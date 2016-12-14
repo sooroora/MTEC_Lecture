@@ -72,6 +72,8 @@ public class AnimatorTrigger : MidiEventTrigger
 
         _animator.SetTrigger("Hit");
 
+
+
     }
 
 
